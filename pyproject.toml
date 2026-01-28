@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robc"
+version = "0.1.0"
+description = "Routing on Bayesian Clustering - An online learning LLM router with Thompson Sampling"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "ModelPilot", email = "team@modelpilot.ai"}
+]
+keywords = [
+    "llm",
+    "routing",
+    "bayesian",
+    "thompson-sampling",
+    "machine-learning",
+    "ai",
+    "contextual-bandits"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.21.0",
+    "scikit-learn>=1.0.0",
+]
+
+[project.optional-dependencies]
+embeddings = [
+    "openai>=1.0.0",
+    "voyageai>=0.1.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/modelpilot/RoBC"
+Documentation = "https://github.com/modelpilot/RoBC#readme"
+Repository = "https://github.com/modelpilot/RoBC"
+Issues = "https://github.com/modelpilot/RoBC/issues"
+
+[tool.setuptools.packages.find]
+include = ["robc*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
