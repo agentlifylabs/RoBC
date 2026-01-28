@@ -36,18 +36,18 @@ We evaluated RoBC against RoRF (static classifier) in a **realistic dynamic scen
 
 ### Phase-by-Phase Results
 
-| Phase                           | RoBC  | RoRF  | RoBC Advantage |
-| ------------------------------- | ----- | ----- | -------------- |
-| **Cold Start** (0-500)          | 0.887 | 0.823 | **+7.8%**      |
-| **Stable** (500-2000)           | 0.921 | 0.825 | **+11.5%**     |
-| **Quality Drift** (2000-3000)   | 0.887 | 0.770 | **+15.2%**     |
-| **New Model Added** (3000-5000) | 0.923 | 0.772 | **+19.5%**     |
+| Phase                           | RoBC  | RoRF  | Winner                     |
+| ------------------------------- | ----- | ----- | -------------------------- |
+| **Cold Start** (0-500)          | 0.887 | 0.929 | RoRF ✓ (has training data) |
+| **Stable** (500-2000)           | 0.921 | 0.930 | ≈ Tie                      |
+| **Quality Drift** (2000-3000)   | 0.887 | 0.877 | RoBC ✓ (adapts)            |
+| **New Model Added** (3000-5000) | 0.923 | 0.876 | RoBC ✓ (+5.3%)             |
 
 ### Key Findings
 
-- **+15.2%** better when model quality changes (RoRF becomes stale)
-- **+19.5%** better when new models are added (RoRF can't use them)
-- **+11.5%** better even in stable periods (learns from real feedback)
+- **In static environments**: RoRF performs equally well or slightly better (has perfect training data)
+- **When quality drifts**: RoBC adapts, RoRF becomes stale
+- **When new models added**: RoBC explores and uses them, RoRF cannot (+5.3%)
 - **No retraining required**—RoBC adapts continuously
 
 ![Learning Curve](assets/learning_curve.png)
@@ -135,20 +135,19 @@ RoBC consists of three main components:
 
 **RoBC is designed for dynamic production environments where:**
 
-| Scenario                 | RoBC Advantage                  | vs Static Routers    |
-| ------------------------ | ------------------------------- | -------------------- |
-| **Model quality drifts** | Adapts automatically            | +15% better          |
-| **New models released**  | Discovers & evaluates instantly | +19% better          |
-| **No training pipeline** | Works out of the box            | No retraining needed |
-| **Continuous feedback**  | Improves with every request     | Always fresh         |
-| **Cold start**           | Explores intelligently          | +8% better           |
+| Scenario                 | RoBC Advantage                                               |
+| ------------------------ | ------------------------------------------------------------ |
+| **New models released**  | Discovers & evaluates instantly (+5.3% when new model added) |
+| **Model quality drifts** | Adapts automatically (no retraining needed)                  |
+| **No training pipeline** | Works out of the box                                         |
+| **Continuous feedback**  | Improves with every request                                  |
 
-**Consider static routers (RoRF) only when:**
+**Consider static routers (RoRF) when:**
 
-- Your environment is truly static (rare in production)
-- You have perfect, up-to-date training data
-- Model rankings never change
-- You never add new models
+- You have comprehensive, up-to-date training data
+- Model rankings are stable
+- You have a retraining pipeline in place
+- You rarely add new models
 
 ## Configuration
 
@@ -228,23 +227,25 @@ controller = Controller(
 
 ### Head-to-Head Comparison
 
-| Feature           | RoBC                   | RoRF                      | Impact                 |
-| ----------------- | ---------------------- | ------------------------- | ---------------------- |
-| **Learning**      | Online (continuous)    | Offline (batch)           | RoBC never goes stale  |
-| **Quality Drift** | Adapts in real-time    | Becomes outdated          | **+15% advantage**     |
-| **New Models**    | Explores immediately   | Can't use them            | **+19% advantage**     |
-| **Cold Start**    | Explores intelligently | Needs training data       | **+8% advantage**      |
-| **Retraining**    | Never needed           | Required regularly        | Lower operational cost |
-| **Best For**      | Dynamic production     | Truly static environments |                        |
+| Feature            | RoBC                    | RoRF                | Impact                 |
+| ------------------ | ----------------------- | ------------------- | ---------------------- |
+| **Static Quality** | Learns online           | Trained offline     | ≈ Equal performance    |
+| **Quality Drift**  | Adapts in real-time     | Becomes outdated    | RoBC adapts            |
+| **New Models**     | Explores immediately    | Can't use them      | **+5.3% advantage**    |
+| **Cold Start**     | Explores (slower start) | Has training data   | RoRF faster initially  |
+| **Retraining**     | Never needed            | Required regularly  | Lower operational cost |
+| **Best For**       | Dynamic production      | Static environments |                        |
 
 ### The Bottom Line
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│  In STATIC environments: RoBC ≈ RoRF (both work well)                  │
-│  In DYNAMIC environments: RoBC >> RoRF (+15-19% better)                │
+│  In STATIC environments: RoBC ≈ RoRF (RoRF slightly better with        │
+│                          perfect training data)                        │
 │                                                                        │
-│  Production is rarely static. Choose accordingly.                      │
+│  In DYNAMIC environments: RoBC wins (adapts to drift, uses new models) │
+│                                                                        │
+│  Choose based on your environment's dynamics.                          │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
