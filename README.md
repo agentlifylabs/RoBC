@@ -261,7 +261,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 If you use RoBC in your research, please cite:
 
 ```bibtex
-@software{robc2025,
+@software{robc2026,
   title = {RoBC: Routing on Bayesian Clustering},
   author = {ModelPilot},
   year = {2026},
