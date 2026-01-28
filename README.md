@@ -265,7 +265,7 @@ If you use RoBC in your research, please cite:
   title = {RoBC: Routing on Bayesian Clustering},
   author = {ModelPilot},
   year = {2026},
-  url = {https://github.com/modelpilot/RoBC}
+  url = {https://github.com/modelpilotlabs/RoBC}
 }
 ```
 
