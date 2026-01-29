@@ -7,9 +7,9 @@ name = "robc"
 version = "0.1.0"
 description = "Routing on Bayesian Clustering - An online learning LLM router with Thompson Sampling"
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
-    {name = "ModelPilot", email = "team@modelpilot.ai"}
+    {name = "ModelPilot", email = "team@modelpilot.co"}
 ]
 keywords = [
     "llm",
@@ -51,10 +51,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/modelpilot/RoBC"
-Documentation = "https://github.com/modelpilot/RoBC#readme"
-Repository = "https://github.com/modelpilot/RoBC"
-Issues = "https://github.com/modelpilot/RoBC/issues"
+Homepage = "https://github.com/modelpilotlabs/RoBC"
+Documentation = "https://github.com/modelpilotlabs/RoBC#readme"
+Repository = "https://github.com/modelpilotlabs/RoBC"
+Issues = "https://github.com/modelpilotlabs/RoBC/issues"
 
 [tool.setuptools.packages.find]
 include = ["robc*"]
