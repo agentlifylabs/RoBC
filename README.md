@@ -1,6 +1,6 @@
 # RoBC - Routing on Bayesian Clustering
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue.svg)](https://pypi.org/project/robc/)
 
@@ -272,7 +272,7 @@ If you use RoBC in your research, please cite:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Licensed under the Apache License, Version 2.0.
 
 ## Acknowledgments
 
