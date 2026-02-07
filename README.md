@@ -63,7 +63,7 @@ pip install robc
 ### Source
 
 ```bash
-git clone https://github.com/modelpilot/RoBC
+git clone https://github.com/Agentlify/RoBC
 cd RoBC
 pip install -e .
 ```
@@ -264,9 +264,9 @@ If you use RoBC in your research, please cite:
 ```bibtex
 @software{robc2026,
   title = {RoBC: Routing on Bayesian Clustering},
-  author = {ModelPilot},
+  author = {Agentlify},
   year = {2026},
-  url = {https://github.com/modelpilotlabs/RoBC}
+  url = {https://github.com/agentlifylabs/RoBC}
 }
 ```
 
@@ -277,4 +277,4 @@ Licensed under the Apache License, Version 2.0.
 ## Acknowledgments
 
 - Inspired by [RouteLLM](https://github.com/lm-sys/RouteLLM) and [RoRF](https://github.com/Not-Diamond/RoRF)
-- Built with ❤️ by [ModelPilot](https://modelpilot.co)
+- Built with ❤️ by [Agentlify](https://agentlify.co)
