@@ -2,7 +2,6 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue.svg)](https://pypi.org/project/robc/)
 
 RoBC is an **online learning LLM router** designed for **dynamic production environments**. Using Thompson Sampling and semantic clustering, it continuously adapts to changing model quality—no retraining required.
 
@@ -54,16 +53,14 @@ We evaluated RoBC against RoRF (static classifier) in a **realistic dynamic scen
 
 ## Installation
 
-### PyPI
-
 ```bash
-pip install robc
+pip install git+https://github.com/agentlifylabs/RoBC.git
 ```
 
-### Source
+Or from a local clone:
 
 ```bash
-git clone https://github.com/Agentlify/RoBC
+git clone https://github.com/agentlifylabs/RoBC
 cd RoBC
 pip install -e .
 ```

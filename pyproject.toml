@@ -51,10 +51,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/modelpilotlabs/RoBC"
-Documentation = "https://github.com/modelpilotlabs/RoBC#readme"
-Repository = "https://github.com/modelpilotlabs/RoBC"
-Issues = "https://github.com/modelpilotlabs/RoBC/issues"
+Homepage = "https://github.com/agentlifylabs/RoBC"
+Documentation = "https://github.com/agentlifylabs/RoBC#readme"
+Repository = "https://github.com/agentlifylabs/RoBC"
+Issues = "https://github.com/agentlifylabs/RoBC/issues"
 
 [tool.setuptools.packages.find]
 include = ["robc*"]
